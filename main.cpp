@@ -108,7 +108,6 @@ int main()
 	config.delays[7] = sf::milliseconds(150);
 	config.delays[8] = sf::milliseconds(100);
 	config.delays[9] = sf::milliseconds(50);
-
 	config.acceleratedDelay = sf::milliseconds(25);
 
 	Tetris(config).run();
