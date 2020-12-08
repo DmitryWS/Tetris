@@ -254,7 +254,7 @@ bool Tetris::moveFigureDown()
 		int lines = _field.checkLines();
 		_linesCount += lines;
 		_score += 100 + 50 * lines * (lines + 1);
-		_level = _score / 100000;
+		_level = _score / 10000;
 		if (_level > 9)
 			_level = 9;
 		if (!newFigure())
