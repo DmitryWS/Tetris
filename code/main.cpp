@@ -4,7 +4,8 @@ typedef sf::Uint32 UInt;
 
 struct TetrisConfig
 {
-	sf::Keyboard::Key moveLeftKey, moveRightKey, rotateKey, acceleratedDownKey, pauseKey;
+	sf::Keyboard::Key moveLeftKey, moveRightKey, rotateKey, acceleratedDownKey,
+		pauseKey, restartKey;
 	sf::Time delays[10], acceleratedDelay;
 };
 
@@ -97,6 +98,7 @@ int main()
 	config.rotateKey = sf::Keyboard::W;
 	config.acceleratedDownKey = sf::Keyboard::S;
 	config.pauseKey = sf::Keyboard::Escape;
+	config.restartKey = sf::Keyboard::Enter;
 
 	config.delays[0] = sf::milliseconds(400);
 	config.delays[1] = sf::milliseconds(450);
@@ -173,6 +175,8 @@ void Tetris::handleEvents()
 				_delay = _config.acceleratedDelay;
 			if (event.key.code == _config.pauseKey)
 				_pause = !_pause;
+			if (event.key.code == _config.restartKey)
+				reset();
 			break;
 		case sf::Event::KeyReleased:
 			if (event.key.code == _config.acceleratedDownKey)
